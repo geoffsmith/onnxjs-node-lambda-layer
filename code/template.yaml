@@ -1,0 +1,19 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: onnxjs-node layer
+Globals:
+    Function:
+        Timeout: 3
+        Runtime: nodejs10.x
+
+Resources:
+    TempConversionDepLayer:
+        Type: AWS::Serverless::LayerVersion
+        Properties:
+            LayerName: onnxjs-node-layer
+            Description: OnnxJS node layer
+            ContentUri: package/
+            CompatibleRuntimes:
+              - nodejs10.x
+            LicenseInfo: 'MIT'
+            RetentionPolicy: Retain
